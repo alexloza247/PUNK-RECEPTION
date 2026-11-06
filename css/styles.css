@@ -90,6 +90,10 @@ header.masthead .site-heading .subheading {
   object-fit: cover;
 }
 
+.about-photo {
+  max-width: 480px;
+}
+
 @media print {
   #mainNav, header.masthead, .no-print, footer {
     display: none !important;

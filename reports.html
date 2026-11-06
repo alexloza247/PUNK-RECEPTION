@@ -28,9 +28,17 @@
           <li class="nav-item"><a class="nav-link" href="payments.html"><i class="fas fa-file-invoice-dollar mr-1"></i> Pagos</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-chalkboard-teacher mr-1"></i> Contacto </a></li>
           <li class="nav-item ml-lg-2">
-            <button class="btn btn-outline-light btn-sm mt-1" data-toggle="modal" data-target="#modalLogin">
-              <i class="fas fa-user-circle mr-1"></i> <span id="userRoleLabel">Acceso Tutores</span>
-            </button>
+            <div class="dropdown mt-1">
+              <button class="btn btn-outline-light btn-sm dropdown-toggle" id="activeUserMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle mr-1"></i> <span id="userRoleLabel">Uriel Pérez</span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="activeUserMenu">
+                <a class="dropdown-item" href="#" data-user-id="uriel">Uriel Pérez</a>
+                <a class="dropdown-item" href="#" data-user-id="mateo">Mateo García</a>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalLogin"><i class="fas fa-lock mr-2"></i>Cerrar sesión</button>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
@@ -43,9 +51,6 @@
       <div class="site-heading">
         <h1>Punk Reception</h1>
         <span class="subheading">Portal académico y seguimiento para padres - Robot Punk</span>
-        <div class="mt-3">
-          <span class="badge badge-pill badge-primary p-2"><i class="fas fa-user"></i> Usuario Activo: <strong id="activeUser">Padre de familia (Uriel Pérez)</strong></span>
-        </div>
       </div>
     </div>
   </header>

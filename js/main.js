@@ -1,12 +1,34 @@
+var usuariosAsociados = [
+  { id: 'uriel', nombre: 'Uriel Pérez' },
+  { id: 'mateo', nombre: 'Mateo García' }
+];
+
+function seleccionarUsuario(id) {
+  var usuario = usuariosAsociados.find(function (item) {
+    return item.id === id;
+  });
+
+  if (!usuario) return;
+
+  localStorage.setItem('usuarioActivoId', usuario.id);
+  $('#userRoleLabel').text(usuario.nombre);
+  $('#activeUser').text('Padre de familia (' + usuario.nombre + ')');
+}
+
+$(function () {
+  var usuarioGuardado = localStorage.getItem('usuarioActivoId') || usuariosAsociados[0].id;
+  seleccionarUsuario(usuarioGuardado);
+
+  $('[data-user-id]').on('click', function (e) {
+    e.preventDefault();
+    seleccionarUsuario($(this).data('user-id'));
+  });
+});
+
 // Cambiar de rol (RF1.1)
 function iniciarSesion(e) {
   e.preventDefault();
-  var rol = $('#selectRol').val();
-  var nombre = rol === 'Padre/Tutor' ? 'Padre de Familia (Uriel Pérez)' : (rol === 'Profesor' ? 'Ing. Sergio J. (Docente)' : 'Administración General');
-  $('#activeUser').text(nombre);
-  $('#userRoleLabel').text(rol);
-  $('#modalLogin').modal('hide');
-  alert('Sesión iniciada correctamente con rol de: ' + rol);
+  window.location.href = 'index.html';
 }
 
 // Ver código de Proyecto (RF3.1, RF3.2)
