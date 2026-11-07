@@ -1,45 +1,20 @@
-var usuariosAsociados = [
-  { id: 'uriel', nombre: 'Uriel Pérez' },
-  { id: 'mateo', nombre: 'Mateo García' }
-];
-
-function seleccionarUsuario(id) {
-  var usuario = usuariosAsociados.find(function (item) {
-    return item.id === id;
-  });
-
-  if (!usuario) return;
-
-  localStorage.setItem('usuarioActivoId', usuario.id);
-  $('#userRoleLabel').text(usuario.nombre);
-  $('#activeUser').text('Padre de familia (' + usuario.nombre + ')');
-}
-
 $(function () {
-  var usuarioGuardado = localStorage.getItem('usuarioActivoId') || usuariosAsociados[0].id;
-  seleccionarUsuario(usuarioGuardado);
-
-  $('[data-user-id]').on('click', function (e) {
-    e.preventDefault();
-    seleccionarUsuario($(this).data('user-id'));
-  });
+  var formLogin = document.getElementById('formLogin');
+  if (formLogin) {
+    formLogin.addEventListener('submit', function () {
+      document.getElementById('loginUsuario').value = document.getElementById('loginEmail').value;
+      document.getElementById('loginContrasena').value = document.getElementById('loginPassword').value;
+    });
+  }
 });
-
-// Cambiar de rol (RF1.1)
-function iniciarSesion(e) {
-  e.preventDefault();
-  window.location.href = 'index.html';
-}
-
-// Ver código de Proyecto (RF3.1, RF3.2)
-function verCodigo(titulo, codigo) {
-  $('#tituloModalCodigo').html('<i class="fas fa-code mr-2"></i> Prototipo: ' + titulo);
-  $('#contenidoCodigo').text(codigo);
-  $('#modalCodigo').modal('show');
-}
 
 // Descarga Interactiva de Recibos en PDF (RF4.1, RF4.2)
 function descargarRecibo(folio, concepto, monto, fecha) {
+  var elementoNombreAlumno = document.getElementById('userRoleLabel');
+  var nombreAlumno = elementoNombreAlumno ? elementoNombreAlumno.textContent.trim() : 'Alumno';
+  var nombreAlumnoSeguro = nombreAlumno.replace(/[&<>"']/g, function (caracter) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[caracter];
+  });
   var reciboWindow = window.open('', '_blank');
   reciboWindow.document.write(`
     <html>
@@ -56,7 +31,7 @@ function descargarRecibo(folio, concepto, monto, fecha) {
         </div>
         <div class="card-body">
           <p><strong>Academia de Robótica Punk Reception</strong></p>
-          <p><strong>Alumno:</strong> Uriel Pérez </p>
+          <p><strong>Alumno:</strong> ${nombreAlumnoSeguro}</p>
           <p><strong>Concepto:</strong> ${concepto}</p>
           <p><strong>Fecha de Pago:</strong> ${fecha}</p>
           <p><strong>Monto Pagado:</strong> ${monto}</p>

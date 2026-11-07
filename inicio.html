@@ -1,3 +1,7 @@
+<?php
+include_once __DIR__ . '/php/conexion.php';
+include_once __DIR__ . '/php/controlador_login.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,7 +18,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="inicio.html"><img src="images/punk.png" class="logo-rp mr-3" alt="">PUNK RECEPTION</a>
+      <a class="navbar-brand" href="inicio.html"><img src="images/punk.png" class="logo-rp mr-3">ROBOT PUNK</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menú">
         Menú <i class="fas fa-bars ml-1"></i>
       </button>
@@ -33,8 +37,19 @@
     </div>
   </nav>
 
-  <main class="container pt-5 mt-5 mb-5">
-    <section id="cursos-regulares" class="py-5 border-bottom">
+  <!-- Header Estilo Clean Blog -->
+  <header class="masthead">
+    <div class="container">
+      <div class="site-heading">
+        <h1>Robot Punk</h1>
+        <span class="subheading">Academia de robotica.</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Info de la pagina original -->
+  <main class="container mt-0 pt-2 mb-5">
+    <section id="cursos-regulares" class="pt-3 pb-5 border-bottom">
       <h2>Cursos regulares</h2>
       <div id="contenidoCursosRegulares" class="mt-4">
         <p>Programa extraescolar durante el ciclo escolar, con opciones de horario y actividades prácticas de ciencia, tecnología, ingeniería, arte y matemáticas (STEAM).</p>
@@ -145,28 +160,29 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header bg-dark text-white">
-          <h5 class="modal-title" id="modalLoginTitle"><i class="fas fa-lock mr-2"></i>Inicio de Sesión por Rol</h5>
-          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+          <h5 class="modal-title" id="modalLoginTitle"><i class="fas fa-lock mr-2"></i>Inicio de sesión a Punk Reception</h5>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</    span></button>
         </div>
         <div class="modal-body">
-          <form id="formLogin" onsubmit="iniciarSesion(event)">
+          <form id="formLogin" method="post">
             <div class="form-group">
-              <label for="selectRol">Seleccionar Rol de Usuario:</label>
-              <select id="selectRol" class="form-control">
-                <option value="Padre/Tutor">Padre / Tutor de Familia</option>
-                <option value="Profesor">Profesor / Docente</option>
-                <option value="Administrador">Administrador de la Academia</option>
+              <label for="selectRol">Seleccionar rol de usuario:</label>
+              <select id="selectRol" class="form-control" name="rol">
+                <option value="Padre/Tutor">Padre / Tutor de familia</option>
+                <option value="Profesor/Docente">Profesor / Docente</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="loginEmail">Correo Electrónico:</label>
-              <input id="loginEmail" type="email" class="form-control" value="tutor@punkreception.edu" required>
+              <label for="loginEmail">Correo electrónico:</label>
+              <input id="loginEmail" type="email" class="form-control" value="tutor@punkreception.edu" name="email" required>
+              <input id="loginUsuario" type="hidden" name="usuario">
             </div>
             <div class="form-group">
               <label for="loginPassword">Contraseña:</label>
-              <input id="loginPassword" type="password" class="form-control" value="123456" required>
+              <input id="loginPassword" type="password" class="form-control" value="123456" name="password" required>
+              <input id="loginContrasena" type="hidden" name="contrasena">
             </div>
-            <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt mr-1"></i>Entrar al Sistema</button>
+            <button type="submit" name="btnIngresar" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt mr-1"></i>Entrar al sistema</button>
           </form>
         </div>
       </div>
