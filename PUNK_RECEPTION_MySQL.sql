@@ -164,9 +164,7 @@ CREATE TABLE Participacion (
 );
 
 
--- =========================================================
--- INSERTAR DATOS (Todas las contraseñas configuradas a '1234')
--- =========================================================
+-- INSERTAR DATOS 
 
 -- 1. Inserts para Tabla Tutor
 INSERT INTO Tutor (nombre, apellidos, correo, contrasena, telefono) VALUES
