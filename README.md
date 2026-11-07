@@ -29,11 +29,14 @@
 <h3>Pantalla de avisos y noticias:</h3>
 <p>Tablas: Noticia y Evento. Estas simulan la sincronización de un panel de avisos para padres y/o tutores. </p>
 <img src="images/mini2.png" alt="Noticias">
+<br/>
 
 <h3>Pantalla de reportes:</h3>
 <p>Tabla: Reporte. Esta simula la sincronización de un panel de reportes de conducta de los alumnos para padres y/o tutores. </p>
 <img src="images/mini3.png" alt="Reportes">
+<br/>
 
 <h3>Pantalla de galeria:</h3>
 <p>Tabla: Proyecto. Esta simula la sincronización de una galería de proyectos realizados por los alumnos para padres y/o tutores. </p>
-<img src="images/mini4.png" alt="Reportes">
+<img src="images/mini4.png" alt="Galeria">
+<br/>
