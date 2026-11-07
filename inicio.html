@@ -152,15 +152,17 @@
     </div>
   </footer>
 
+  <!-- Modal de inicio de sesión -->
   <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header bg-dark text-white">
           <h5 class="modal-title" id="modalLoginTitle"><i class="fas fa-lock mr-2"></i>Inicio de sesión a Punk Reception</h5>
-          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</    span></button>
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-          <form id="formLogin" action="index.html">
+          <form id="formLogin" action="php/con_login.php" method="POST">
+            <div id="loginError" class="alert alert-danger d-none" role="alert"></div>
             <div class="form-group">
               <label for="selectRol">Seleccionar rol de usuario:</label>
               <select id="selectRol" class="form-control" name="rol">
@@ -170,13 +172,11 @@
             </div>
             <div class="form-group">
               <label for="loginEmail">Correo electrónico:</label>
-              <input id="loginEmail" type="email" class="form-control" value="tutor@punkreception.edu" name="email" required>
-              <input id="loginUsuario" type="hidden" name="usuario">
+              <input id="loginEmail" type="email" class="form-control" name="email" required>
             </div>
             <div class="form-group">
               <label for="loginPassword">Contraseña:</label>
-              <input id="loginPassword" type="password" class="form-control" value="123456" name="password" required>
-              <input id="loginContrasena" type="hidden" name="contrasena">
+              <input id="loginPassword" type="password" class="form-control" name="password" required>
             </div>
             <button type="submit" name="btnIngresar" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt mr-1"></i>Entrar al sistema</button>
           </form>
@@ -188,5 +188,17 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    var loginError = new URLSearchParams(window.location.search).get('error');
+    var loginErrorElement = document.getElementById('loginError');
+    if (loginError && loginErrorElement) {
+      loginErrorElement.textContent = loginError === 'sin_alumnos'
+        ? 'Esta cuenta de tutor aún no tiene alumnos asociados.'
+        : 'Correo, contraseña o rol incorrectos. Inténtalo de nuevo.';
+      loginErrorElement.classList.remove('d-none');
+      $('#modalLogin').modal('show');
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  </script>
 </body>
 </html>
