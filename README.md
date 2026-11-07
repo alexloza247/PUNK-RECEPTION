@@ -19,6 +19,7 @@
   <li>Correo: <u>carlos.mendoza@email.com</u></li>
   <li>Contraseña: <u>1234</u></li>
 </ul>
+<br/>
 
 <h3>Pantalla de inicio:</h3>
 <p>Para esta unidad agregamos otra página de inicio que contiene información sobre el sitio web o empresa en la que se basa el sistema, esto para simular un pequeño login. </p>
