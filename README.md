@@ -16,7 +16,7 @@
 
 <h3>Datos para iniciar sesion:</h3>
 <ul>
-  <li>Correo: <u></u><carlos.mendoza@email.com/li>
+  <li>Correo: <u>carlos.mendoza@email.com</u></li>
   <li>Contraseña: <u>1234</u></li>
 </ul>
 
