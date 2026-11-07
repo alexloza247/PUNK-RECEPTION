@@ -5,7 +5,6 @@
 <p>- Alejandro Lozano Avila</p>
 
 <h2>Proyecto de la unidad 3</h2>
-<hr/>
 
 <h3>Tablas involucradas:</h3>
 <ul>
@@ -14,14 +13,12 @@
   <li>Reporte</li>
   <li>Galeria</li>
 </ul>
-<br/>
 
 <h3>Datos para iniciar sesion:</h3>
 <ul>
   <li>Correo: <u></u><carlos.mendoza@email.com/li>
   <li>Contraseña: <u>1234</u></li>
 </ul>
-<br/>
 
 <h3>Pantalla de inicio:</h3>
 <p>Para esta unidad agregamos otra página de inicio que contiene información sobre el sitio web o empresa en la que se basa el sistema, esto para simular un pequeño login. </p>
