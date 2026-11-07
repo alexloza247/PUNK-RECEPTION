@@ -6,6 +6,8 @@ $(function () {
 
     event.preventDefault();
     etiquetaUsuario.textContent = opcionUsuario.dataset.userName;
+    var nombreAlumnoReporte = document.getElementById('reportStudentName');
+    if (nombreAlumnoReporte) nombreAlumnoReporte.textContent = opcionUsuario.dataset.userName;
     document.querySelectorAll('[data-user-name]').forEach(function (opcion) {
       var seleccionada = opcion === opcionUsuario;
       opcion.classList.toggle('active', seleccionada);
@@ -13,13 +15,6 @@ $(function () {
     });
   });
 
-  var formLogin = document.getElementById('formLogin');
-  if (formLogin) {
-    formLogin.addEventListener('submit', function () {
-      document.getElementById('loginUsuario').value = document.getElementById('loginEmail').value;
-      document.getElementById('loginContrasena').value = document.getElementById('loginPassword').value;
-    });
-  }
 });
 
 // Descarga Interactiva de Recibos en PDF (RF4.1, RF4.2)
@@ -33,18 +28,18 @@ function descargarRecibo(folio, concepto, monto, fecha) {
   reciboWindow.document.write(`
     <html>
     <head>
-      <title>Recibo ${folio} - Punk Reception</title>
+      <title>Recibo ${folio} - Robot Punk</title>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
       <style>body { padding: 40px; font-family: sans-serif; }</style>
     </head>
     <body>
       <div class="card border-dark">
         <div class="card-header bg-dark text-white d-flex justify-content-between">
-          <h4>PUNK RECEPTION - COMPROBANTE DE PAGO</h4>
+          <h4>ROBOT PUNK - COMPROBANTE DE PAGO</h4>
           <h4>Folio: ${folio}</h4>
         </div>
         <div class="card-body">
-          <p><strong>Academia de Robótica Punk Reception</strong></p>
+          <p><strong>Academia de Robótica Robot Punk</strong></p>
           <p><strong>Alumno:</strong> ${nombreAlumnoSeguro}</p>
           <p><strong>Concepto:</strong> ${concepto}</p>
           <p><strong>Fecha de Pago:</strong> ${fecha}</p>

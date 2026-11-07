@@ -1,13 +1,9 @@
-<?php
-include_once __DIR__ . '/php/conexion.php';
-include_once __DIR__ . '/php/controlador_login.php';
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Inicio - Punk Reception</title>
+  <title>Inicio - Robot Punk</title>
 
   <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -16,21 +12,33 @@ include_once __DIR__ . '/php/controlador_login.php';
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  
+  <!-- Navegación Principal -->
   <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="inicio.html"><img src="images/punk.png" class="logo-rp mr-3">ROBOT PUNK</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Abrir menú">
+      <a class="navbar-brand" href="index.html"><img src="images/punk.png" class="logo-rp mr-3">ROBOT PUNK</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         Menú <i class="fas fa-bars ml-1"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#cursos-regulares">Cursos</a></li>
-          <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-newspaper mr-1"></i> Avisos</a></li>
+          <li class="nav-item"><a class="nav-link" href="reports.html"><i class="fas fa-graduation-cap mr-1"></i> Reportes</a></li>
+          <li class="nav-item"><a class="nav-link" href="galery.html"><i class="fas fa-images mr-1"></i> Galería</a></li>
+          <li class="nav-item"><a class="nav-link" href="payments.html"><i class="fas fa-file-invoice-dollar mr-1"></i> Pagos</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-chalkboard-teacher mr-1"></i> Contacto </a></li>
           <li class="nav-item ml-lg-2">
-            <button class="btn btn-outline-light btn-sm mt-1" type="button" data-toggle="modal" data-target="#modalLogin">
-              <i class="fas fa-sign-in-alt mr-1"></i> Iniciar sesión
-            </button>
+            <div class="dropdown mt-1">
+              <button class="btn btn-outline-light btn-sm dropdown-toggle" id="activeUserMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle mr-1"></i> <span id="userRoleLabel">Mateo García</span>
+                </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="activeUserMenu">
+                  <button class="dropdown-item active" type="button" data-user-name="Mateo García" aria-current="true">Mateo García</button>
+                  <button class="dropdown-item" type="button" data-user-name="Sofía García" aria-current="false">Sofía García</button>
+                  <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="inicio.html"><i class="fas fa-sign-out-alt mr-2"></i>Cerrar sesión</a>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
@@ -42,7 +50,7 @@ include_once __DIR__ . '/php/controlador_login.php';
     <div class="container">
       <div class="site-heading">
         <h1>Robot Punk</h1>
-        <span class="subheading">Academia de robotica.</span>
+        <span class="subheading">Academia de robótica.</span>
       </div>
     </div>
   </header>
@@ -151,8 +159,8 @@ include_once __DIR__ . '/php/controlador_login.php';
 
   <footer class="bg-dark text-white py-4 mt-5">
     <div class="container text-center">
-      <p class="mb-1">&copy; 2026 <strong>Punk Reception</strong> - Robot Punk</p>
-      <small class="text-muted">Sistema para Gestión Académica, Administrativa y de Comunicación para Padres de Familia</small>
+      <p class="mb-1">&copy; 2026 <strong>Robot Punk</strong></p>
+      <small class="text-muted">Academia de Robótica.</small>
     </div>
   </footer>
 
@@ -164,7 +172,7 @@ include_once __DIR__ . '/php/controlador_login.php';
           <button type="button" class="close text-white" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</    span></button>
         </div>
         <div class="modal-body">
-          <form id="formLogin">
+          <form id="formLogin" action="index.html">
             <div class="form-group">
               <label for="selectRol">Seleccionar rol de usuario:</label>
               <select id="selectRol" class="form-control" name="rol">
@@ -175,14 +183,12 @@ include_once __DIR__ . '/php/controlador_login.php';
             <div class="form-group">
               <label for="loginEmail">Correo electrónico:</label>
               <input id="loginEmail" type="email" class="form-control" value="tutor@punkreception.edu" name="email" required>
-              <input id="loginUsuario" type="hidden" name="usuario">
             </div>
             <div class="form-group">
               <label for="loginPassword">Contraseña:</label>
               <input id="loginPassword" type="password" class="form-control" value="123456" name="password" required>
-              <input id="loginContrasena" type="hidden" name="contrasena">
             </div>
-            <button href="index.html" type="submit" name="btnIngresar" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt mr-1"></i>Entrar al sistema</button>
+            <button type="submit" name="btnIngresar" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt mr-1"></i>Entrar al sistema</button>
           </form>
         </div>
       </div>
