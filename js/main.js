@@ -1,4 +1,18 @@
 $(function () {
+  document.addEventListener('click', function (event) {
+    var opcionUsuario = event.target.closest('[data-user-name]');
+    var etiquetaUsuario = document.getElementById('userRoleLabel');
+    if (!opcionUsuario || !etiquetaUsuario) return;
+
+    event.preventDefault();
+    etiquetaUsuario.textContent = opcionUsuario.dataset.userName;
+    document.querySelectorAll('[data-user-name]').forEach(function (opcion) {
+      var seleccionada = opcion === opcionUsuario;
+      opcion.classList.toggle('active', seleccionada);
+      opcion.setAttribute('aria-current', String(seleccionada));
+    });
+  });
+
   var formLogin = document.getElementById('formLogin');
   if (formLogin) {
     formLogin.addEventListener('submit', function () {
