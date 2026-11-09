@@ -1,8 +1,8 @@
 <h2><b>PUNK RECEPTION</b></h2>
 
 <h3>Integrantes:</h3>
-<p>- Sergio Jaciel Jiménez González</p>
-<p>- Alejandro Lozano Avila</p>
+<p>- Sergio Jaciel Jiménez González.</p>
+<p>- Alejandro Lozano Avila.</p>
 
 <h2>Proyecto de la unidad 3</h2>
 
