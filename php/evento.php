@@ -32,7 +32,7 @@ class Evento
     public static function listar()
     {
         $pdo = Conexion::conectar();
-        $sql = "SELECT id_evento, titulo, descripcion, fecha_programada FROM Evento WHERE fecha_programada < CURDATE() ORDER BY fecha_programada DESC";
+        $sql = "SELECT id_evento, titulo, descripcion, fecha_programada FROM Evento WHERE fecha_programada > CURDATE() ORDER BY fecha_programada DESC";
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }
